@@ -1,6 +1,7 @@
 import  {useState, useEffect} from 'react';
 import {API_URL, API_KEY} from "../config";
 import Preloader from "../components/Preloader";
+import GoodsList from "../components/GoodsList";
 
 
 function Main(props) {
@@ -13,7 +14,7 @@ function Main(props) {
             }
         }).then(response => response.json())
             .then((data) => {
-                data.shop && setGoods(data.shop)
+                data.featured && setGoods(data.featured)
                 setLoading(false)
             })
     }, [])
@@ -23,7 +24,7 @@ function Main(props) {
         <div>
             <main className="container content">
                 {
-                    loading ? <Preloader/> : <Preloader/>
+                    loading ? <Preloader/> : <GoodsList goods={goods}/>
                 }
             </main>
         </div>

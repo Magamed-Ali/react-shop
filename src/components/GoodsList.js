@@ -1,8 +1,19 @@
-import React from 'react';
+import GoodsItem from "./GoodsItem";
 
 function GoodsList(props) {
+    const {goods = []} = props;
+
+    if (!goods.length ){
+       return <h3>Nothing here</h3>
+    }
     return (
-        <div></div>
+        <div className='goods movies'>
+            {
+                goods.map(item => {
+                    return <GoodsItem key={item.id} {...item}/>
+                })
+            }
+        </div>
     );
 }
 
