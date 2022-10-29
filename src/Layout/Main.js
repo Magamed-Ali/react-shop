@@ -19,11 +19,6 @@ function Main(props) {
             })
     }, [])
 
-    function summ(a, b){
-        return +a + +b
-    }
-
-    console.log(summ('23', 65))
     return (
         <div>
             <main className="container content">
