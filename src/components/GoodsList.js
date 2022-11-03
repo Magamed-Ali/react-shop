@@ -10,7 +10,7 @@ function GoodsList(props) {
         <div className='goods movies'>
             {
                 goods.map(item => {
-                    return <GoodsItem key={item.id} {...item}/>
+                    return <GoodsItem key={item.id} {...item} AddToCart={props.AddToCart}/>
                 })
             }
         </div>

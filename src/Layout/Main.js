@@ -8,6 +8,11 @@ import {Card} from '../components/Card'
 function Main(props) {
     const [goods, setGoods] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [order, setOrder] = useState([])
+
+    const AddToCart = () => {
+        setOrder(order + 1)
+    }
     useEffect(()=> {
         fetch(API_URL, {
             headers: {
@@ -23,9 +28,9 @@ function Main(props) {
     return (
         <div>
             <main className="container content">
-                <Card quantity={goods.length}/>
+                <Card quantity={order.length}/>
                 {
-                    loading ? <Preloader/> : <GoodsList goods={goods}/>
+                    loading ? <Preloader/> : <GoodsList goods={goods} AddToCart={AddToCart}/>
                 }
             </main>
         </div>

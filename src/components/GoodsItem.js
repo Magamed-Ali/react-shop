@@ -5,7 +5,8 @@ function GoodsItem(props) {
         description,
         type,
         price,
-        full_background
+        full_background,
+        AddToCart
 
     } = props;
     return (
@@ -19,7 +20,7 @@ function GoodsItem(props) {
                 <p>!!!</p>
             </div>
             <div className="card-action">
-                <button className="btn">This is a link</button>
+                <button className="btn" onClick={AddToCart}>This is a link</button>
                 <span className="right">{price}</span>
             </div>
         </div>
