@@ -7,6 +7,7 @@ function GoodsList(props) {
        return <h3>Nothing here</h3>
     }
 
+    console.log(goods)
     return (
         <div className='goods movies'>
             {

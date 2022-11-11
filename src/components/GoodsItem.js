@@ -1,3 +1,5 @@
+import Imgg from './imgg2.jpg';
+
 function GoodsItem(props) {
     const {
         id,
@@ -9,10 +11,17 @@ function GoodsItem(props) {
         AddToCart
 
     } = props;
+    
     return (
         <div className="card" id={id}>
             <div className="card-image">
-                <img src={full_background} alt={name}/>
+
+                {
+                    full_background  ?
+                        <img src={full_background} alt={name}/>
+                        :
+                        <img src={Imgg} alt={Imgg}/>
+                }
 
             </div>
             <span className="card-title">{name}</span>
