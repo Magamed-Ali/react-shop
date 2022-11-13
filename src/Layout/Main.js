@@ -13,6 +13,12 @@ function Main(props) {
     const AddToCart = () => {
         setOrder(order + 1)
     }
+
+    const addToBasket = (item) => {
+        setOrder([...order, item])
+    };
+
+
     useEffect(()=> {
         fetch(API_URL, {
             headers: {

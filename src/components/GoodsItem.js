@@ -11,16 +11,18 @@ function GoodsItem(props) {
         AddToCart
 
     } = props;
-    
+
     return (
+
         <div className="card" id={id}>
             <div className="card-image">
 
                 {
-                    full_background  ?
+                    full_background
+                     ?
                         <img src={full_background} alt={name}/>
                         :
-                        <img src={Imgg} alt={Imgg}/>
+                        <img src={Imgg} alt={name}/>
                 }
 
             </div>
