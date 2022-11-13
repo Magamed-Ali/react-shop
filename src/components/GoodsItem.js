@@ -8,7 +8,7 @@ function GoodsItem(props) {
         type,
         price,
         full_background,
-        AddToCart
+        addToBasket = Function.prototype,
 
     } = props;
 
@@ -31,7 +31,10 @@ function GoodsItem(props) {
                 <p>!!!</p>
             </div>
             <div className="card-action">
-                <button className="btn" onClick={AddToCart}>This is a link</button>
+                <button className="btn" onClick={() =>
+                    addToBasket({id, name, price})}>
+                    This is a link
+                </button>
                 <span className="right">{price}</span>
             </div>
         </div>

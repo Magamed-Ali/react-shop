@@ -10,13 +10,31 @@ function Main(props) {
     const [loading, setLoading] = useState(true);
     const [order, setOrder] = useState([])
 
-    const AddToCart = () => {
-        setOrder(order + 1)
-    }
-
     const addToBasket = (item) => {
-        setOrder([...order, item])
-    };
+        const itemIndex = order.findIndex(orderItem => orderItem.id === item.id)
+
+        if(itemIndex < 0) {
+            const newItem = {
+                ...item,
+                quantity: 1,
+            }
+            setOrder([...order, newItem])
+        } else {
+            const newOrder = order.map((orderItem, index) => {
+                if(index === itemIndex){
+                    return {
+                        ...orderItem,
+                        quantity: orderItem.quantity + 1
+                    }
+                }else {
+                    return orderItem
+                }
+            });
+
+            setOrder(newOrder)
+        }
+        }
+
 
 
     useEffect(()=> {
@@ -31,12 +49,14 @@ function Main(props) {
             })
     }, [])
 
+    console.log(order)
     return (
         <div>
             <main className="container content">
                 <Card quantity={order.length}/>
                 {
-                    loading ? <Preloader/> : <GoodsList goods={goods} AddToCart={AddToCart}/>
+                    loading ? <Preloader/> :
+                        <GoodsList goods={goods} addToBasket={addToBasket}/>
                 }
             </main>
         </div>
