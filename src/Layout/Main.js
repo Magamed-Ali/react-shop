@@ -8,7 +8,13 @@ import {Card} from '../components/Card'
 function Main(props) {
     const [goods, setGoods] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [order, setOrder] = useState([])
+    const [order, setOrder] = useState([]);
+    const [isBasketShow, setBasketSow] = useState(false);
+
+
+    const handleBasketShow = () => {
+        setBasketSow(!isBasketShow)
+    }
 
     const addToBasket = (item) => {
         const itemIndex = order.findIndex(orderItem => orderItem.id === item.id)
@@ -53,7 +59,7 @@ function Main(props) {
     return (
         <div>
             <main className="container content">
-                <Card quantity={order.length}/>
+                <Card quantity={order.length} handleBasketShow={handleBasketShow}/>
                 {
                     loading ? <Preloader/> :
                         <GoodsList goods={goods} addToBasket={addToBasket}/>
