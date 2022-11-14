@@ -2,7 +2,8 @@ import  {useState, useEffect} from 'react';
 import {API_URL, API_KEY} from "../config";
 import Preloader from "../components/Preloader";
 import GoodsList from "../components/GoodsList";
-import {Card} from '../components/Card'
+import {Card} from '../components/Card';
+import {BasketList} from "../components/BasketList";
 
 
 function Main(props) {
@@ -63,6 +64,9 @@ function Main(props) {
                 {
                     loading ? <Preloader/> :
                         <GoodsList goods={goods} addToBasket={addToBasket}/>
+                }
+                {
+                    isBasketShow && <BasketList order={order}/>
                 }
             </main>
         </div>
