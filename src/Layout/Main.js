@@ -66,7 +66,7 @@ function Main(props) {
                         <GoodsList goods={goods} addToBasket={addToBasket}/>
                 }
                 {
-                    isBasketShow && <BasketList order={order}/>
+                    isBasketShow && <BasketList order={order} handleBasketShow={handleBasketShow}/>
                 }
             </main>
         </div>
