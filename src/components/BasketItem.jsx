@@ -4,12 +4,12 @@ function BasketItem(props){
         name,
         price,
         quantity,
-        removeFromBasket
+        removeFromBasket = Function.prototype
     } = props;
 
     return (
         <li className="collection-item">
-            {name} * {quantity} = {price}
+            {name} * {quantity} = {price * quantity}
             <span className='secondary-content' onClick={() => removeFromBasket(id)}>
                 <i className="material-icons">close</i>
             </span>

@@ -56,6 +56,8 @@ nav{
   background-color: #fff;
   width: 50rem;
   max-width: 90%;
+
+  animation: show 500ms ease-in-out;
 }
 .basket-close {
   position: fixed;
@@ -68,6 +70,17 @@ nav{
 
 .secondary-content{
   cursor: pointer;
+}
+
+@keyframes show {
+  from {
+    top: -70%;
+    opacity: 0;
+  }
+  to {
+    top: 50%;
+    opacity: 1;
+  }
 }
 
 
