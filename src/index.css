@@ -57,7 +57,7 @@ nav{
   width: 50rem;
   max-width: 90%;
 }
-.basket-close{
+.basket-close {
   position: fixed;
   right: 5px;
   top: 5px;
@@ -65,3 +65,9 @@ nav{
 
   color: #fff;
 }
+
+.secondary-content{
+  cursor: pointer;
+}
+
+
