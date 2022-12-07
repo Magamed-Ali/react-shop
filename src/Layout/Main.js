@@ -12,16 +12,20 @@ function Main(props) {
     const [order, setOrder] = useState([]);
     const [isBasketShow, setBasketSow] = useState(false);
 
+    const incQuantity = (itemId) => {
+    }
+
+    const decQuantity = (itemId) => {
+
+    }
 
     const handleBasketShow = () => {
         setBasketSow(!isBasketShow)
     }
-
     const removeFromBasket = (itemId) => {
         const newOrder = order.filter((el) => el.id !== itemId);
         setOrder(newOrder)
     }
-
     const addToBasket = (item) => {
         const itemIndex = order.findIndex(orderItem => orderItem.id === item.id)
 
@@ -47,7 +51,6 @@ function Main(props) {
         }
         }
 
-
     useEffect(()=> {
         fetch(API_URL, {
             headers: {
@@ -60,7 +63,6 @@ function Main(props) {
             })
     }, [])
 
-    console.log(order)
     return (
         <div>
             <main className="container content">
