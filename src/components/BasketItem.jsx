@@ -1,4 +1,4 @@
-function BasketItem(props){
+function BasketItem(props) {
     const {
         id,
         name,
@@ -11,14 +11,20 @@ function BasketItem(props){
 
     return (
         <li className="collection-item">
-            {name}
-            <i className='material-icons' onClick={() => decQuantity(id)}>remove</i>
-            *
-            <i className='material-icons' onClick={() => incQuantity(id)}>add</i>
-            {quantity} = {price * quantity} руб.
-            <span className='secondary-content' onClick={() => removeFromBasket(id)}>
-                <i className="material-icons">close</i>
+
+            <span className="collection-name">
+                {name}
+                *
+                {quantity} = {price * quantity} руб.
             </span>
+
+            <span>
+                <i className='material-icons secondary-content' onClick={() => decQuantity(id)}>remove_circle</i>
+                <i className='material-icons secondary-content' onClick={() => incQuantity(id)}>add_circle</i>
+
+                <i className="material-icons secondary-content secondary-close" onClick={() => removeFromBasket(id)} >close</i>
+            </span>
+
         </li>
     )
 }

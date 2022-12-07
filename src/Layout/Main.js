@@ -88,7 +88,7 @@ function Main(props) {
 
     return (
         <div>
-            <main className="container content">
+            <main className="container content ">
                 <Card quantity={order.length} handleBasketShow={handleBasketShow}/>
                 {
                     loading ? <Preloader/> :
