@@ -1,26 +1,35 @@
 import {BasketItem} from './BasketItem';
 
-function BasketList(props){
+function BasketList(props) {
     const {
         order = [],
         handleBasketShow = Function.prototype,
-        removeFromBasket = Function.prototype} = props;
+        removeFromBasket = Function.prototype,
+        decQuantity = Function.prototype,
+        incQuantity = Function.prototype
+    } = props;
 
-    const totolPrice = order.reduce((sum, el) => {
+    const totalPrice = order.reduce((sum, el) => {
         return sum + el.price * el.quantity
     }, 0)
 
     return <ul className="collection basket-list">
         <a href="#!" className="collection-item active">Корзина</a>
-                <i className="material-icons basket-close" onClick={handleBasketShow}>close</i>
+        <i className="material-icons basket-close" onClick={handleBasketShow}>close</i>
         {
             order.length ? order.map(item => (
-                <BasketItem key={item.id} {...item} removeFromBasket={removeFromBasket}/>))
+                    <BasketItem
+                        key={item.id}
+                        {...item}
+                        removeFromBasket={removeFromBasket}
+                        decQuantity={decQuantity}
+                        incQuantity={incQuantity}
+                    />))
                 :
                 <li className="collection-item"> Корзина пуста</li>
         }
 
-        <a href="#!" className="collection-item active">Общая стоимость: {totolPrice} руб. </a>
+        <a href="#!" className="collection-item active">Общая стоимость: {totalPrice} руб. </a>
     </ul>
 }
 
