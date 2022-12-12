@@ -43,10 +43,6 @@ nav{
   }
 }
 
-.cart-quantity{
-
-}
-
 .basket-list{
   position: fixed;
   top: 50%;
@@ -106,4 +102,6 @@ nav{
   margin-left: 10px;
 }
 
-
+.main-card{
+  min-height: 180px;
+}

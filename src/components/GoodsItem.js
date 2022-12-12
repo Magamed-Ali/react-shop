@@ -26,10 +26,13 @@ function GoodsItem(props) {
                 }
 
             </div>
-            <span className="card-title">{name}</span>
-            <div className="card-content">
-                <p>!!!</p>
+            <div className="main-card">
+                <div className="card-title" style={{padding: "15px 25px 0 25px"}}>{name}</div>
+                <div className="card-content">
+                    <p>{description}</p>
+                </div>
             </div>
+
             <div className="card-action">
                 <button className="btn" onClick={() =>
                     addToBasket({id, name, price})}>
