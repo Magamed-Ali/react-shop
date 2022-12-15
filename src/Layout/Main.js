@@ -1,9 +1,10 @@
-import  {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import {API_URL, API_KEY} from "../config";
 import Preloader from "../components/Preloader";
 import GoodsList from "../components/GoodsList";
 import {Card} from '../components/Card';
 import {BasketList} from "../components/BasketList";
+import {Alert} from '../components/Alert'
 
 
 function Main(props) {
@@ -15,13 +16,13 @@ function Main(props) {
 
     const incQuantity = (itemId) => {
         const newOrder = order.map(el => {
-            if(el.id === itemId){
+            if (el.id === itemId) {
                 const newQuantity = el.quantity + 1;
                 return {
                     ...el,
                     quantity: newQuantity
                 }
-            }else {
+            } else {
                 return el;
             }
         });
@@ -30,13 +31,13 @@ function Main(props) {
 
     const decQuantity = (itemId) => {
         const newOrder = order.map(el => {
-            if(el.id === itemId){
+            if (el.id === itemId) {
                 const newQuantity = el.quantity - 1;
                 return {
                     ...el,
                     quantity: newQuantity >= 0 ? newQuantity : 0
                 }
-            }else {
+            } else {
                 return el;
             }
         });
@@ -57,7 +58,7 @@ function Main(props) {
     const addToBasket = (item) => {
         const itemIndex = order.findIndex(orderItem => orderItem.id === item.id)
 
-        if(itemIndex < 0) {
+        if (itemIndex < 0) {
             const newItem = {
                 ...item,
                 quantity: 1,
@@ -65,21 +66,22 @@ function Main(props) {
             setOrder([...order, newItem])
         } else {
             const newOrder = order.map((orderItem, index) => {
-                if(index === itemIndex){
+                if (index === itemIndex) {
                     return {
                         ...orderItem,
                         quantity: orderItem.quantity + 1
                     }
-                }else {
+                } else {
                     return orderItem
                 }
             });
 
             setOrder(newOrder)
         }
-        }
+        setAlertName(item.name)
+    }
 
-    useEffect(()=> {
+    useEffect(() => {
         fetch(API_URL, {
             headers: {
                 'Authorization': API_KEY
@@ -107,6 +109,9 @@ function Main(props) {
                         incQuantity={incQuantity}
                         decQuantity={decQuantity}
                     />
+                }
+                {
+                    alertName && <Alert name={alertName} closeAlert={closeAlert}/>
                 }
             </main>
         </div>
