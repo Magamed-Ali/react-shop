@@ -11,6 +11,7 @@ function Main(props) {
     const [loading, setLoading] = useState(true);
     const [order, setOrder] = useState([]);
     const [isBasketShow, setBasketSow] = useState(false);
+    const [alertName, setAlertName] = useState('')
 
     const incQuantity = (itemId) => {
         const newOrder = order.map(el => {
@@ -48,6 +49,10 @@ function Main(props) {
     const removeFromBasket = (itemId) => {
         const newOrder = order.filter((el) => el.id !== itemId);
         setOrder(newOrder)
+    }
+
+    const closeAlert = () => {
+        setAlertName("")
     }
     const addToBasket = (item) => {
         const itemIndex = order.findIndex(orderItem => orderItem.id === item.id)
