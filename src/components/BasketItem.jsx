@@ -19,10 +19,13 @@ function BasketItem(props) {
             </span>
 
             <span>
-                <i className='material-icons secondary-content' onClick={() => decQuantity(id)}>remove_circle</i>
-                <i className='material-icons secondary-content' onClick={() => incQuantity(id)}>add_circle</i>
+                <i className='material-icons secondary-content'
+                   onClick={() => decQuantity(id)}>remove_circle</i>
+                <i className='material-icons secondary-content'
+                   onClick={() => incQuantity(id)}>add_circle</i>
 
-                <i className="material-icons secondary-content secondary-close" onClick={() => removeFromBasket(id)} >close</i>
+                <i className="material-icons secondary-content secondary-close"
+                   onClick={() => removeFromBasket(id)} >close</i>
             </span>
 
         </li>

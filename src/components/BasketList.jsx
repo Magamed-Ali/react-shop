@@ -29,7 +29,10 @@ function BasketList(props) {
                 <li className="collection-item"> Корзина пуста</li>
         }
 
-        <a href="#!" className="collection-item active">Общая стоимость: {totalPrice} руб. </a>
+        <a href="#!" className="collection-item active">
+            Общая стоимость: {totalPrice} руб.
+        <button className="secondary-content btn">Оформить</button>
+        </a>
     </ul>
 }
 
