@@ -74,6 +74,12 @@ export function reducer(state, {type, payload}) {
                 ...state,
                 isBasketShow: !state.isBasketShow
             }
+        case 'SET_GOODS':
+            return {
+                ...state,
+                goods: payload || [],
+                loading: false
+            }
         default:
             return state;
     }
