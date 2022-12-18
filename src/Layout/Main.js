@@ -55,31 +55,6 @@ function Main(props) {
     const closeAlert = () => {
         setAlertName("")
     }
-    const addToBasket = (item) => {
-        const itemIndex = order.findIndex(orderItem => orderItem.id === item.id)
-
-        if (itemIndex < 0) {
-            const newItem = {
-                ...item,
-                quantity: 1,
-            }
-            setOrder([...order, newItem])
-        } else {
-            const newOrder = order.map((orderItem, index) => {
-                if (index === itemIndex) {
-                    return {
-                        ...orderItem,
-                        quantity: orderItem.quantity + 1
-                    }
-                } else {
-                    return orderItem
-                }
-            });
-
-            setOrder(newOrder)
-        }
-        setAlertName(item.name)
-    }
 
     useEffect(() => {
         fetch(API_URL, {
@@ -99,7 +74,7 @@ function Main(props) {
                 <Card quantity={order.length} handleBasketShow={handleBasketShow}/>
                 {
                     loading ? <Preloader/> :
-                        <GoodsList goods={goods} addToBasket={addToBasket}/>
+                        <GoodsList goods={goods}/>
                 }
                 {
                     isBasketShow && <BasketList
