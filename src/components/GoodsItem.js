@@ -6,13 +6,15 @@ function GoodsItem(props) {
     const {
         id,
         name,
-        description,
-        type,
         price,
+        quantity,
+        description,
         full_background
     } = props;
 
     const {addToBasket} = useContext(ShopContext)
+
+
     return (
 
         <div className="card" id={id}>
@@ -21,7 +23,7 @@ function GoodsItem(props) {
                 {
                     full_background
                      ?
-                        <img src={full_background} alt={name}/>
+                        <img src={full_background} alt={name} />
                         :
                         <img src={Imgg} alt={name}/>
                 }
@@ -36,10 +38,17 @@ function GoodsItem(props) {
 
             <div className="card-action">
                 <button className="btn" onClick={() =>
-                    addToBasket({id, name, price})}>
-                    This is a link
+                    addToBasket({
+                        id,
+                        name,
+                        price
+                    }
+                    )
+                }
+                >
+                    Купить
                 </button>
-                <span className="right">{price}</span>
+                <span className="right">{price}руб.</span>
             </div>
         </div>
     );

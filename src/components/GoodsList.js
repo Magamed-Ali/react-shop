@@ -1,20 +1,20 @@
 import GoodsItem from "./GoodsItem";
+import {useContext} from "react";
+import {ShopContext} from "../context";
 
-function GoodsList(props) {
-    const {goods = []} = props;
+function GoodsList() {
+    const {goods = []} = useContext(ShopContext);
 
     if (!goods.length ){
        return <h3>Nothing here</h3>
     }
 
-    console.log(goods)
     return (
         <div className='goods movies'>
             {
-                goods.map(item => {
-                    return <GoodsItem key={item.id} {...item}/>
-                })
-            }
+                goods.map((item) => (
+                     <GoodsItem key={item.id} {...item}/>
+                ))}
         </div>
     );
 }
