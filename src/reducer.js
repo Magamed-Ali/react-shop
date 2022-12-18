@@ -39,6 +39,41 @@ export function reducer(state, {type, payload}) {
                 alertName: payload.name
             }
         }
+        case 'INCREMENT_QUANTITY':
+            return {
+                ...state,
+                order: state.order.map(el => {
+                    if (el.id === payload.id) {
+                        const newQuantity = el.quantity + 1;
+                        return {
+                            ...el,
+                            quantity: newQuantity
+                        }
+                    } else {
+                        return el;
+                    }
+                })
+            }
+        case 'DECREMENT_QUANTITY':
+            return {
+                ...state,
+                order: state.order.map(el => {
+                    if (el.id === payload.id) {
+                        const newQuantity = el.quantity - 1;
+                        return {
+                            ...el,
+                            quantity: newQuantity >= 0 ? newQuantity : 0
+                        }
+                    } else {
+                        return el;
+                    }
+                })
+            }
+        case 'TOGGLE_BASKET':
+            return {
+                ...state,
+                isBasketShow: !state.isBasketShow
+            }
         default:
             return state;
     }
