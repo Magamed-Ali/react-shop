@@ -22,6 +22,10 @@ export const ContextProvider = ({children}) => {
         dispatch({type: 'REMOVE_FROM_BASKET', payload: {id: itemId}})
     }
 
+    value.addToBasket = (item) => {
+        dispatch({type: 'ADD_TO_BASKET', payload: item})
+    }
+
     return <ShopContext.Provider value={value}>
         {children}
     </ShopContext.Provider>
