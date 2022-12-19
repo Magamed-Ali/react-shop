@@ -8,7 +8,7 @@ const initialState = {
     loading: true,
     order: [],
     isBasketShow: false,
-    alertName: '',
+    alertName: ''
 };
 
 export const ContextProvider = ({ children }) => {

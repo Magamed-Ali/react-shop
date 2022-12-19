@@ -4,13 +4,14 @@ import {ShopContext} from "../context";
 
 function BasketList() {
     const {
-        order = [],
+        order,
         handleBasketShow = Function.prototype
     } = useContext(ShopContext);
 
     const totalPrice = order.reduce((sum, el) => {
         return sum + el.price * el.quantity
     }, 0)
+
 
     return <ul className="collection basket-list">
         <li

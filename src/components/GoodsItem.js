@@ -7,7 +7,6 @@ function GoodsItem(props) {
         id,
         name,
         price,
-        quantity,
         description,
         full_background
     } = props;
